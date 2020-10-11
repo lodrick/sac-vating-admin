@@ -1,0 +1,29 @@
+table {
+  width: 100%;
+}
+
+mat-card {
+  max-width: 600px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+mat-form-field {
+  display: block;
+}
+
+mat-card {
+  margin-top: 2em;
+  mat-card-content form a {
+    text-decoration: none;
+  }
+  mat-card-content p .otp {
+    border: 0em;
+    background: green;
+    color: ivory;
+  }
+}
+
+button {
+  margin: 0.1em;
+}

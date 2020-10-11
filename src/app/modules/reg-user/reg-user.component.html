@@ -1,0 +1,150 @@
+<mat-card>
+  <mat-card-content>
+    <h2>Sign Up</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <mat-error *ngIf="regInvalid">
+        The username and password were not recognised
+      </mat-error>
+
+      <div class="form-group">
+        <mat-form-field class="full-width-input">
+          <input
+            matInput
+            type="text"
+            placeholder="First Name:"
+            formControlName="fname"
+            required
+          />
+          <mat-error>
+            Please provide a valid First Name
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Last Name:"
+          formControlName="lname"
+          required
+        />
+        <mat-error>
+          Please provide a valid Last Name
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <!--<input
+          matInput
+          type="text"
+          name="gender"
+          id="gender"
+          placeholder="Gender:"
+          formControlName="gender"
+          required
+        />-->
+        <mat-label for="gender">Gender:</mat-label>
+        <!--<mat-select
+          name="gender"
+          [(ngModel)]="gender"
+          [ngModelOptions]="{ standalone: true }"
+          style="width: 100%; height: 30px;"
+        >
+          <mat-option>{{ genders }}</mat-option>
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Other">Other</mat-option>
+        </mat-select>-->
+        <mat-select
+          formControlName="gender"
+          class="form-control"
+          (change)="getgender($event)"
+        >
+          <mat-option disabled>Select Gender:</mat-option>
+          <mat-option *ngFor="let gender of genders" value="{{ gender }}">{{
+            gender
+          }}</mat-option>
+        </mat-select>
+        <mat-error>
+          Please select Gender
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          placeholder="Age:"
+          formControlName="age"
+          required
+        />
+        <mat-error>
+          Please provide a valid age
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Username:"
+          formControlName="username"
+          required
+        />
+        <mat-error>
+          Please provide a valid username
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="email"
+          placeholder="Email:"
+          formControlName="email"
+          required
+        />
+        <mat-error>
+          Please provide a valid email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Password:"
+          formControlName="password"
+          required
+          class="mat-input-element mat-form-field-autofill-control ng-tns-c155-7 cdk-text-field-autofil-control monitored ng-pristine ng-invalid"
+          ng-reflect-type="password"
+          ng-reflect-required
+          ng-reflect-name="password"
+          id="mat-input-5"
+          aria-invalid="false"
+          aria-required="true"
+        />
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Re-Password:"
+          formControlName="re_password"
+          required
+        />
+        <mat-error>
+          password doesn't match
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Sign Up</button>
+
+      <p>Already have an account? <a routerLink="/">Login</a></p>
+    </form>
+  </mat-card-content>
+</mat-card>

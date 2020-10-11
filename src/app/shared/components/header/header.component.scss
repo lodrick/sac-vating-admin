@@ -1,0 +1,39 @@
+ul li {
+  list-style: none;
+}
+
+mat-toolbar {
+  background-color: rgba(31, 66, 61, 1);
+  background: filter-gradient(#1f423d, #1f423d, horizontal);
+  background: background-image(
+    linear-gradient(
+      to left top,
+      rgba(31, 66, 61, 1) 4%,
+      rgba(31, 66, 61, 1) 12%,
+      rgba(15, 48, 43, 1) 51%,
+      rgba(0, 31, 26, 1) 86%
+    )
+  );
+
+  -webkit-box-shadow: 3px 14px 20px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 14px 20px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 14px 20px -2px rgba(0, 0, 0, 0.75);
+}
+
+mat-icon {
+  color: #f2f2f2;
+}
+
+span {
+  color: #f2f2f2;
+}
+
+mat-toolbar {
+  mat-toolbar-row {
+    .toolbar-header {
+      float: right;
+      color: black;
+      margin: 73%;
+    }
+  }
+}

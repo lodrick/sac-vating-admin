@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-content>
+    <h1>
+      Welcome to Student Association/Representative Council(SAC/SRC) online
+      voting
+    </h1>
+    <h2>One-time password OTP</h2>
+    <!--<p>
+      we are just checking that your email/contact number =email / =phone, exist
+      in cyber space.
+    </p>-->
+    <p>
+      You will receive an email with a One-time password (OTP), please enter
+      that OTP in the field below to continue your registration process. the OTP
+      is valid for 3 Minuts.
+    </p>
+    <div *ngIf="_otp !== null">
+      OTP: <strong>{{ _otp }}</strong>
+    </div>
+
+    <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          value="{{ _otp }}"
+          placeholder="Enter your one time password"
+          formControlName="otp"
+          required
+        />
+        <mat-error>
+          One Time Password(OTP) is required.
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Login</button>
+      <p>
+        Didn't get the otp?
+        <button class="otp" mat-raised-button (ngSubmit)="onResendOtp()">
+          Re-send
+        </button>
+      </p>
+    </form>
+  </mat-card-content>
+</mat-card>
